@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AQI & Health Impact Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- ================= INPUT PAGE ================= -->
+<div class="container" id="inputPage">
+
+    <h2>Air Quality & Health Impact Prediction</h2>
+
+    <form id="aqiForm">
+
+        <label>Particulate Matter ≤ 2.5 micrometers (PM2.5)</label>
+        <center><input id="pm25" type="number" step="any" required></center><br/>
+
+        <label>Particulate Matter ≤ 10 micrometers (PM10)</label>
+        <center><input id="pm10" type="number" step="any" required></center><br/>
+
+        <label>Nitrogen Dioxide (NO₂)</label>
+        <center><input id="no2" type="number" step="any" required></center><br/>
+
+        <label>Sulfur Dioxide (SO₂)</label>
+        <center><input id="so2" type="number" step="any" required></center><br/>
+
+        <label>Ozone (O₃)</label>
+        <center><input id="o3" type="number" step="any" required></center><br/>
+
+        <label>Ambient Temperature (°C)</label>
+        <center><input id="temperature" type="number" step="any" required></center><br/>
+
+        <label>Relative Humidity (%)</label>
+        <center><input id="humidity" type="number" step="any" required></center><br/>
+
+        <label>Wind Speed (m/s)</label>
+        <center><input id="windspeed" type="number" step="any" required></center><br/>
+
+        <button type="submit">Predict</button>
+
+    </form>
+</div>
+
+<!-- ================= RESULT PAGE ================= -->
+<div id="resultPage" class="result-page hidden">
+
+    <!-- 🔵 AQI DETAILS -->
+    <div class="result-box blue-box">
+        <h3>Predicted AQI</h3>
+        <p id="resAqi"></p>
+
+        <h3>AQI Category</h3>
+        <p id="resCategory"></p>
+
+        <h3>Health Impact Score</h3>
+        <p id="resHealth"></p>
+    </div>
+
+    <div class="result-box">
+        <h3>Health Impacts & Precautions</h3>
+        <div id="impactList"></div>
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
